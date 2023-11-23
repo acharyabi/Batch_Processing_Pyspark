@@ -12,3 +12,5 @@ Location of the connector in google cloud storage.
 Code: gsutil cp gs://hadoop-lib/gcs/gcs-connector-hadoop3-3.4.1.jar
 
 https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-hadoop3-latest.jar
+
+https://spark.apache.org/docs/latest/spark-standalone.html
