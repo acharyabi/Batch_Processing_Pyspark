@@ -22,3 +22,10 @@ Starting the spark:
 
 #For checking which port has been used for the spark job cluster.
 cat /home/abinash/spark/spark-3.4.1-bin-hadoop3/logs/spark-abinash-org.apache.spark.deploy.master.Master-1-de-zoomcamp.out
+
+#Master:
+spark://de-zoomcamp.asia-south2-a.c.dtc-abi-tyingtolearn.internal:7077
+
+#Set the worker for handling the job.
+./sbin/start-worker.sh spark://de-zoomcamp.asia-south2-a.c.dtc-abi-tyingtolearn.internal:7077
+
