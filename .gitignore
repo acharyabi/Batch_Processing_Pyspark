@@ -5,3 +5,4 @@ head.csv
 code/taxi+_zone_lookup.csv
 spark-warehouse/
 lib/
+spark/
