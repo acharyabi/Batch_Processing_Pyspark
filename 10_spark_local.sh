@@ -37,5 +37,21 @@ gcloud dataproc jobs submit pyspark \
     gs://dtc_data_lake_dtc-abi-tyingtolearn/code/10_spark_local.py \
     -- \
         --input_green=gs://dtc_data_lake_dtc-abi-tyingtolearn/pq/green/2020/*/ \
-        --input_yellow=gs://dtc_data_lake_dtc-abi-tyingtolearn/pq/yellow/2020/*/\
+        --input_yellow=gs://dtc_data_lake_dtc-abi-tyingtolearn/pq/yellow/2020/*/ \
         --output=gs://dtc_data_lake_dtc-abi-tyingtolearn/report-2020
+
+https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example 
+
+#Trips_data_all is the schema name.
+trips_data_all.reports-2020
+
+#For using spark directly using daraproc to the bigquery.
+gcloud dataproc jobs submit pyspark \
+    --jars=gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.11-0.23.2.jar \
+    --cluster=dezoomcamp-cluster \
+    --region=us-central1 \
+    gs://dtc_data_lake_dtc-abi-tyingtolearn/code/11_spark_bigquery.py \
+    -- \
+        --input_green=gs://dtc_data_lake_dtc-abi-tyingtolearn/pq/green/2021/*/ \
+        --input_yellow=gs://dtc_data_lake_dtc-abi-tyingtolearn/pq/yellow/2021/*/ \
+        --output=trips_data_all.reports-2021
