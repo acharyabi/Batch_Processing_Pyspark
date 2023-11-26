@@ -54,4 +54,4 @@ gcloud dataproc jobs submit pyspark \
     -- \
         --input_green=gs://dtc_data_lake_dtc-abi-tyingtolearn/pq/green/2021/*/ \
         --input_yellow=gs://dtc_data_lake_dtc-abi-tyingtolearn/pq/yellow/2021/*/ \
-        --output=trips_data_all.reports-2021
+        --output=trips_proc.reports-2021

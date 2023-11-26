@@ -112,4 +112,5 @@ df_result.show()
 #  Saving the data to BigQuery.
 df_result.write.format("bigquery")\
   .option("table",output)\
+  .mode("overwrite") \
   .save()
