@@ -1,18 +1,33 @@
 #!/usr/bin/env python
 # coding: utf-8
+import argparse
 import pyspark
 from pyspark.sql import SparkSession
 
+parser = argparse.ArgumentParser()
+
+parser.add_argument('--input_green', required=True)
+parser.add_argument('--input_yellow', required=True, help='password for postgres')
+parser.add_argument('--output', required=True, help='port for postgres')
+
+args= parser.parse_args()
+
+#Taking arguments for input and output.
+input_green = args.input_green
+input_yellow = args.input_yellow
+output = args.output
+
 # spark.stop()
 spark = SparkSession.builder \
-    .master("spark://de-zoomcamp.asia-south2-a.c.dtc-abi-tyingtolearn.internal:7077") \
     .appName('test') \
     .getOrCreate()
 
 spark
 
-df_green=spark.read.parquet('data/pq/green/*/*')
-df_yellow=spark.read.parquet('data/pq/yellow/*/*')
+df_green=spark.read.parquet(input_green)
+df_yellow=spark.read.parquet(input_yellow)
+
+
 df_green.show()
 df_green.printSchema()
 
@@ -98,4 +113,4 @@ GROUP BY
 df_result.show()
 
 #To reduce the number of files to only one.
-df_result.coalesce(1).write.parquet('data/report/revenue/', mode='overwrite')
+df_result.coalesce(1).write.parquet(output, mode='overwrite')
