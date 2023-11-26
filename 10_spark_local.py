@@ -18,11 +18,12 @@ input_yellow = args.input_yellow
 output = args.output
 
 # spark.stop()
+#### The master isn't specified so that the dataproc can automatically create the master as configured. ####
 spark = SparkSession.builder \
     .appName('test') \
     .getOrCreate()
 
-spark
+# spark
 
 df_green=spark.read.parquet(input_green)
 df_yellow=spark.read.parquet(input_yellow)
